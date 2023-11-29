@@ -118,8 +118,10 @@ with st.form("chat_form"):
 negResponse = "I'm unable to answer the question based on the information I have from Elastic."
 if submit_button:
     resp, url = search(query)
-    prompt = f"Answer this question: {query}\nUsing only the information from Elastic: {resp}\nIf the answer is not contained in the supplied doc reply '{negResponse}' and nothing else"
-    prompt = f"Answer this question: {query}\nUsing only the information from Elastic: {resp}"
+    
+    prompt = f"Responda a esta pergunta: {query}\nUtilizando apenas as informações do Elastic: {resp}\nSe a resposta não estiver contida no documento fornecido, responda '{negResponse}' e nada mais."
+    prompt = f"Responda a esta pergunta: {query}\nUtilizando apenas as informações do Elastic: {resp}"
+
     answer = chat_gpt(prompt, g_model)
     
     print("prompt------->", prompt)
